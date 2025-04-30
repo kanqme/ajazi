@@ -31,7 +31,7 @@ const projects = [
   {
     key: "nonni-smart",
     label: "Nonni Smart",
-    img: "images/placeholder-nonni-smart.png",
+    img: "./images/placeholder-nonni-smart.png",
     to: "/projects/nonni-smart",
     description: "Il progetto \"Nonni Smart\" è nato con l'obiettivo di avvicinare le persone anziane al mondo della tecnologia. Attraverso incontri pratici, abbiamo insegnato loro a utilizzare il computer e lo smartphone in modo semplice e sicuro.",
     year: "2024/2025"
@@ -58,7 +58,7 @@ const computerComponents = [
     icon: HardDrive,
     description: "L'hard disk è la memoria di massa che conserva in modo permanente file, programmi e il sistema operativo.",
     detailedDescription: "La memoria permanente del computer. Può essere meccanico (HDD) o a stato solido (SSD).",
-    imageSrc: ":/lovable-uploads/harddisk.jpg"
+    imageSrc: "./lovable-uploads/harddisk.jpg"
   },
   {
     name: "Alimentatore",
@@ -176,24 +176,21 @@ const MontaSmontaDetail: React.FC = () => {
                     <div className="w-full h-[240px] overflow-hidden bg-dark-300 flex items-center justify-center">
                       <img 
                         src={component.imageSrc} 
-                        alt={component.name} 
-                        className="w-full object-cover h-full"
+                        alt={component.name}
+                        className="w-full h-full object-contain p-4"
                       />
                     </div>
-                    <div className="absolute top-[260px] left-0 right-0 p-4">
-                      <p className="text-center text-accent-purple font-semibold">{component.name}</p>
+                    <div className="p-4 flex items-center justify-center">
+                      <h3 className="text-xl font-semibold text-accent-blue">{component.name}</h3>
                     </div>
                   </div>
-
-                  <div className="absolute inset-0 bg-dark-100 rounded-xl backface-hidden">
-                    <div className="w-full h-full text-gray-300 p-6 space-y-6">
-                      <div className="flex items-center gap-4 mb-6">
-                        {React.createElement(component.icon, { className: "w-12 h-12 text-accent-purple" })}
-                        <div className="flex flex-col">
-                          <p className="font-semibold text-white text-xl">{component.name}</p>
-                          <p>{component.detailedDescription}</p>
-                        </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-dark-300 to-dark-200 rounded-xl border border-accent-blue/30 overflow-hidden backface-hidden shadow-xl rotate-y-180">
+                    <div className="flex flex-col items-center justify-between h-full py-8 px-6">
+                      <div className="p-3 rounded-full bg-dark-300/50 text-accent-purple">
+                        <component.icon size={32} />
                       </div>
+                      <h3 className="text-xl font-semibold text-accent-purple my-4">{component.name}</h3>
+                      <p className="text-gray-200 text-center">{component.detailedDescription}</p>
                     </div>
                   </div>
                 </div>
@@ -201,22 +198,45 @@ const MontaSmontaDetail: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex justify-between items-center mt-8">
+          <h2 className="font-semibold mt-6 mb-6 text-2xl gradient-text">Competenze sviluppate</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {skills.map((skill, index) => (
+              <div 
+                key={index} 
+                className="flex items-center gap-4 p-4 bg-dark-300/50 rounded-xl border border-transparent hover:border-accent-purple/30 hover:bg-dark-300/70 transition-all duration-300"
+              >
+                <div className={`p-2 rounded-lg bg-dark-300/80 ${skill.color}`}>
+                  <skill.icon size={24} />
+                </div>
+                <span className="text-gray-100 font-medium text-sm md:text-base">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Animated Navigation Buttons */}
+        <div className="mt-12 flex flex-col sm:flex-row justify-between items-center gap-4">
+          {prevProject && (
             <button 
               onClick={() => navigate(prevProject.to)}
-              className="flex items-center gap-2 text-accent-purple font-medium text-lg transition-all duration-300 hover:text-accent-blue hover:gap-3"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-dark-300 border border-accent-purple/30 text-gray-200 font-medium transition-all duration-300 hover:bg-accent-purple/20 hover:border-accent-purple hover:text-white hover:shadow-lg hover:shadow-accent-purple/20"
             >
-              <ArrowLeft size={20} />
-              <span className="underline underline-offset-2">Progetto precedente</span>
+              <ArrowLeft size={20} className="transition-transform duration-300 group-hover:-translate-x-1" />
+              <span>{prevProject.label}</span>
             </button>
-            <button
+          )} 
+          {!prevProject && <div className="w-full sm:w-auto"></div>} {/* Placeholder to maintain layout */} 
+          
+          {nextProject && (
+            <button 
               onClick={() => navigate(nextProject.to)}
-              className="flex items-center gap-2 text-accent-purple font-medium text-lg transition-all duration-300 hover:text-accent-blue hover:gap-3"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-dark-300 border border-accent-blue/30 text-gray-200 font-medium transition-all duration-300 hover:bg-accent-blue/20 hover:border-accent-blue hover:text-white hover:shadow-lg hover:shadow-accent-blue/20"
             >
-              <span className="underline underline-offset-2">Progetto successivo</span>
-              <ArrowRight size={20} />
+              <span>{nextProject.label}</span>
+              <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
             </button>
-          </div>
+          )}
+          {!nextProject && <div className="w-full sm:w-auto"></div>} {/* Placeholder to maintain layout */} 
         </div>
       </div>
     </section>
