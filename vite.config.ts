@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
-  base: '/davide/', // <--- AGGIUNGI LA RIGA QUI
+  base: '/ajazi/', // <--- AGGIUNGI LA RIGA QUI
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
