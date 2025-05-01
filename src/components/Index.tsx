@@ -203,14 +203,13 @@ const Index: React.FC = () => {
     <div className="min-h-screen bg-dark-100 text-white">
       <div id="particles-js" className="absolute top-0 left-0 w-full h-screen pointer-events-none"></div>
       <Navbar />
-      {/* Assign refs to sections if needed, or rely on getElementById */}
-      <Hero /> 
-      <Projects />
-      <About />
-      <Contact />
+      <section id="home"><Hero /></section>
+      <section id="projects"><Projects /></section>
+      <section id="about"><About /></section>
+      <section id="contact"><Contact /></section>
       <Footer />
     </div>
   );
-};
+  
 
 export default Index;

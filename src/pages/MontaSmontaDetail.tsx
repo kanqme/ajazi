@@ -44,35 +44,35 @@ const computerComponents = [
     icon: Cpu,
     description: "Il processore è il cervello del computer. Esegue i calcoli e le operazioni logiche necessarie per far funzionare i programmi.",
     detailedDescription: "Il cervello del computer. Maggiore è la frequenza e il numero di core, più veloce sarà l'elaborazione.",
-    imageSrc: "./lovable-uploads/cpu.jpeg"
+    imageSrc: "https://kanqme.github.io/ajazi/public/lovable-uploads/cpu.jpeg"
   },
   {
     name: "RAM",
     icon: MemoryStick,
     description: "La memoria RAM immagazzina temporaneamente i dati a cui il processore accede frequentemente, permettendo un'elaborazione più veloce.",
     detailedDescription: "Memoria temporanea per accesso veloce ai dati. Più RAM hai, più programmi puoi eseguire insieme.",
-    imageSrc: "./lovable-uploads/ram.jpg"
+    imageSrc: "https://kanqme.github.io/ajazi/public/lovable-uploads/ram.jpg"
   },
   {
     name: "Hard Disk",
     icon: HardDrive,
     description: "L'hard disk è la memoria di massa che conserva in modo permanente file, programmi e il sistema operativo.",
     detailedDescription: "La memoria permanente del computer. Può essere meccanico (HDD) o a stato solido (SSD).",
-    imageSrc: "./lovable-uploads/harddisk.jpg"
+    imageSrc: "https://kanqme.github.io/ajazi/public/lovable-uploads/harddisk.jpg"
   },
   {
     name: "Alimentatore",
     icon: Power,
     description: "Fornisce l'energia elettrica necessaria a tutti i componenti del computer, convertendo la corrente alternata in corrente continua.",
     detailedDescription: "Fornisce energia a tutti i componenti. Garantisce stabilità al sistema.",
-    imageSrc: "./lovable-uploads/alimentatore.jpg"
+    imageSrc: "https://kanqme.github.io/ajazi/public/lovable-uploads/alimentatore.jpg"
   },
   {
     name: "Dissipatore",
     icon: Fan,
     description: "Sistema di raffreddamento che evita il surriscaldamento della CPU e di altri componenti durante il funzionamento.",
     detailedDescription: "Mantiene la CPU a temperature ottimali. Può essere ad aria o a liquido.",
-    imageSrc: "./lovable-uploads/dissipatore.jpg"
+    imageSrc: "https://kanqme.github.io/ajazi/public/lovable-uploads/dissipatore.jpg"
   }
 ];
 
@@ -137,13 +137,13 @@ const MontaSmontaDetail: React.FC = () => {
         
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-10 md:mb-12">
           <img
-            src="./lovable-uploads/ad297a93-798e-4b62-b66c-55f1f8011d5e.png"
+            src="https://kanqme.github.io/ajazi/public/lovable-uploads/ad297a93-798e-4b62-b66c-55f1f8011d5e.png"
             alt="Monta e Smonta - interno PC"
             className="rounded-2xl shadow-lg flex-1 object-cover max-h-[280px] md:max-h-[310px] w-full border border-accent-purple/20"
             style={{ background: "#262a3a" }}
           />
           <img
-            src="./lovable-uploads/lol.jpg"
+            src="https://kanqme.github.io/ajazi/public/lovable-uploads/lol.jpg"
             alt="Monta e Smonta - motherboard"
             className="rounded-2xl shadow-lg flex-1 object-cover max-h-[280px] md:max-h-[310px] w-full border border-accent-blue/20"
             style={{ background: "#262a3a" }}
