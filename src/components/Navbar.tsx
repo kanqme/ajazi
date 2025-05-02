@@ -50,4 +50,46 @@ const Navbar: React.FC = () => {
       isScrolled ? 'bg-dark-200/95 shadow-md backdrop-blur-md py-3' : 'bg-transparent py-5'
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
-        <Link to="/" className="text-2xl
+        <Link to="/" className="text-2xl font-bold gradient-text">Portfolio</Link>
+        
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {navItems.map((item) => (
+            <button 
+              key={item.title}
+              onClick={() => handleNavClick(item.targetId)}
+              className="text-gray-300 hover:text-accent-purple transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent-purple hover:after:w-full after:transition-all"
+            >
+              {item.title}
+            </button>
+          ))}
+        </nav>
+        
+        {/* Mobile Navigation Toggle */}
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-white">
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+      
+      {/* Mobile Navigation Menu */}
+      <div className={cn(
+        'md:hidden absolute w-full bg-dark-200/95 backdrop-blur-md transition-all duration-300 ease-in-out',
+        mobileMenuOpen ? 'max-h-64 opacity-100 shadow-lg' : 'max-h-0 opacity-0 invisible'
+      )}>
+        <nav className="flex flex-col space-y-4 p-4">
+          {navItems.map((item) => (
+            <button 
+              key={item.title}
+              onClick={() => handleNavClick(item.targetId)}
+              className="text-gray-300 hover:text-accent-purple transition-colors py-2 text-left w-full"
+            >
+              {item.title}
+            </button>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
