@@ -58,7 +58,7 @@ const computerComponents = [
     icon: HardDrive,
     description: "L'hard disk è la memoria di massa che conserva in modo permanente file, programmi e il sistema operativo.",
     detailedDescription: "La memoria permanente del computer. Può essere meccanico (HDD) o a stato solido (SSD).",
-    imageSrc: "https://kanqme.github.io/ajazi/public/lovable-uploads/harddisk.jpg"
+    imageSrc: "https://github.com/kanqme/ajazi/blob/main/public/lovable-uploads/harddisk.jpg"
   },
   {
     name: "Alimentatore",
